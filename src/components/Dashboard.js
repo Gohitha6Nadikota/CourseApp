@@ -66,7 +66,7 @@ const Dashboard = () => {
     <div className="flex w-[100%] h-[92vh] m-0 p-0 flex-col overflow-y-auto ">
       <div className="text-xl font-bold p-6">Your Learnings</div>
       <div className="flex items-center justify-center flex-wrap md:flex-row md:justify-start md:items-start px-1">
-        {enrolls &&
+        {enrolls.length > 0 ?
           enrolls.map((c) => (
               <NewCard
                 key={c.id}
@@ -74,7 +74,7 @@ const Dashboard = () => {
                 completed={c.completed}
                 handleUpdate={handleUpdate}
               />
-          ))}
+          )) : <p className="pl-5">You have not enrolled in any course</p>}
       </div>
     </div>
   );

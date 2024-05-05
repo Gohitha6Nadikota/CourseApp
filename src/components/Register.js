@@ -4,6 +4,8 @@ import { doc, setDoc, getDocs, collection } from "firebase/firestore";
 import { firestore } from "../firebase.js";
 import { setDetails } from "../utils/userSlice.js";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,11 +40,11 @@ const Register = () => {
           password: password,
           email: email,
         });
-        dispatch(setDetails(size));
+        dispatch(setDetails(String(size)));
         dispatch(setDetails(name));
         dispatch(setDetails(email));
         dispatch(setDetails(password));
-        alert("User created successfully");
+        toast("User created successfully");
         navigate("/login");
       } catch (error) {
         console.error("Error creating user:", error);
@@ -105,6 +107,7 @@ const Register = () => {
           >
             Register
           </button>
+          <ToastContainer />
           <Link to="/login">
             <button className="border-2 border-black m-1 font-extrabold p-2 ">
               Login
