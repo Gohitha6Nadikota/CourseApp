@@ -3,6 +3,8 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { firestore } from "../firebase.js";
 import { context } from "../context/context.js";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   collection,
   getDoc,
@@ -101,6 +103,7 @@ const DetailedCourseCard = () => {
           { merge: true }
         );
       }
+      toast("Enrolled Successfully");
     } catch (error) {
       console.error("Error enrolling:", error);
     }
@@ -161,6 +164,7 @@ const DetailedCourseCard = () => {
               >
                 {enroll}
               </button>
+              <ToastContainer />
             </div>
           )}
         </div>

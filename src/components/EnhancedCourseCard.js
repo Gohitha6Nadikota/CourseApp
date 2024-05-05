@@ -2,11 +2,14 @@ import React from "react";
 import { SlBadge } from "react-icons/sl";
 import { useSelector } from "react-redux";
 import badge from "../images/badge.avif"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const EnhancedCourseCard = (CourseCard) => {
   const userStoreData = useSelector((store) => store.user.details);
 
   return (props) => {
     const handleUpdateDoc = (id, user) => {
+      toast("Marked as Completed");
       props.handleUpdate(id, user);
     };
     const { completed, id } = props.data;
@@ -14,11 +17,7 @@ export const EnhancedCourseCard = (CourseCard) => {
       <div className="shadow-2xl relative m-2">
         {completed && (
           <div className="absolute z-60 ">
-            <img
-              className="w-[50px] h-[50px]"
-              src={badge}
-              alt="badge"
-            />
+            <img className="w-[50px] h-[50px]" src={badge} alt="badge" />
             {/*<SlBadge className="text-4xl text-yellow-400" />*/}
           </div>
         )}
@@ -35,12 +34,15 @@ export const EnhancedCourseCard = (CourseCard) => {
             </h2>
           )}
           {!completed && (
-            <button
-              className="p-2 bg-black text-white my-2 mx-[35px]"
-              onClick={() => handleUpdateDoc(id, userStoreData[0])}
-            >
-              Mark as Completed
-            </button>
+            <>
+              <button
+                className="p-2 bg-black text-white my-2 mx-[35px]"
+                onClick={() => handleUpdateDoc(id, userStoreData[0])}
+              >
+                Mark as Completed
+              </button>
+              <ToastContainer />
+            </>
           )}
         </div>
       </div>
