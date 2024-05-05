@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateEnroll } from "../utils/enrollSlice.js";
 import { EnhancedCourseCard } from "./EnhancedCourseCard.js";
+
 const Dashboard = () => {
   const [enrolls, setEnrolls] = useState([]);
   const { isAuth } = useContext(context);
@@ -19,7 +20,7 @@ const Dashboard = () => {
     const docSnapshot = await getDoc(userRef);
     const userData = docSnapshot.data();
     const courseIndex = userData.courses.findIndex((course) => {
-      return course.id == id;
+      return parseInt(course.id) === parseInt(id);
     });
     if (courseIndex !== -1) {
       const updatedCourses = [...userData.courses];
@@ -62,17 +63,17 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex w-[100vw] h-[92vh] m-0 p-0 flex-col overflow-y-auto ">
+    <div className="flex w-[100%] h-[92vh] m-0 p-0 flex-col overflow-y-auto ">
       <div className="text-xl font-bold p-6">Your Learnings</div>
       <div className="flex items-center justify-center flex-wrap md:flex-row md:justify-start md:items-start px-1">
         {enrolls &&
           enrolls.map((c) => (
-            <NewCard
-              data={c}
-              key={c.id}
-              completed={c.completed}
-              handleUpdate={handleUpdate}
-            />
+              <NewCard
+                key={c.id}
+                data={c}
+                completed={c.completed}
+                handleUpdate={handleUpdate}
+              />
           ))}
       </div>
     </div>

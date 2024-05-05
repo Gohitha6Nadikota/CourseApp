@@ -107,7 +107,7 @@ const DetailedCourseCard = () => {
   };
 
   return (
-    <div className="mt-[8vh] w-[100vw] h-[92vh] flex flex-col items-center ">
+    <div className="w-[100%] h-[92vh] flex flex-col items-center ">
       <div className="text-xl w-full flex items-center justify-start pl-4 pt-4">
         <Link to="/courses">
           <BiArrowBack />
@@ -137,20 +137,32 @@ const DetailedCourseCard = () => {
             Tuesdays & Thursdays <br /> 6:00 PM - 8:00 PM
           </p>
           <p className="px-3 md:px-5">Location : {data.location}</p>
-          <div className="flex">
+          <div className="flex  max-w-[545px]">
             <p className="px-3 md:px-5">Enrollment Status</p>
-            <button className="px-4 bg-[#41B06E] text-white w-[84px] h-[24px] m-1">
+            <button
+              className={`px-4 text-white w-[104px] h-[24px] m-1 ${
+                data.enrollmentStatus === "Open"
+                  ? "bg-green-500"
+                  : data.enrollmentStatus === "Closed"
+                  ? "bg-red-500"
+                  : data.enrollmentStatus === "InProgress"
+                  ? "bg-yellow-500"
+                  : "bg-gray-500"
+              }`}
+            >
               {data.enrollmentStatus}
             </button>
           </div>
-          <div className="flex items-center justify-start">
-            <button
-              className="px-4 bg-black text-white w-[124px] h-[44px] m-2 md:ml-[20px] "
-              onClick={() => handleEnroll(id)}
-            >
-              {enroll}
-            </button>
-          </div>
+          {data.enrollmentStatus === "Open" && (
+            <div className="flex items-center justify-start">
+              <button
+                className="px-4 bg-black text-white w-[124px] h-[44px] m-2 md:ml-[20px] "
+                onClick={() => handleEnroll(id)}
+              >
+                {enroll}
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <div className="">

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Home = () => {
   return (
-    <div className="w-[100vw] h-[92vh] m-0">
-      <div className="flex items-center justify-center flex-col w-[100vw] h-[92vh] ">
+    <div className="w-[100%] h-[92vh] m-0">
+      <div className="flex items-center justify-center flex-col w-[100%] h-[92vh] ">
         <div className="flex items-center flex-col md:flex-row justify-center">
           <h1 className="text-2xl text-black font-extrabold pl-[10px] pr-[50px] py-[30px] md:px-1">
             Take the first step

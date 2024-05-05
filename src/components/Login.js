@@ -40,7 +40,6 @@ const Login = () => {
         dispatch(setDetails(user.name));
         dispatch(setDetails(user.email));
         dispatch(setDetails(user.password));
-        alert("Logged in");
         navigate("/courses");
       } else {
         alert("Wrong credentials. Register if you are a new user.");
@@ -48,7 +47,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="w-[100vw] h-[92vh] bg-white flex items-center justify-center ">
+    <div className="w-[100%] h-[92vh] bg-white flex items-center justify-center ">
       <form
         className="border border-black p-3 sm:p-[16vh] rounded-xl"
         onSubmit={handleSubmit}

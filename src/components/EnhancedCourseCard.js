@@ -1,7 +1,7 @@
 import React from "react";
 import { SlBadge } from "react-icons/sl";
 import { useSelector } from "react-redux";
-
+import badge from "../images/badge.avif"
 export const EnhancedCourseCard = (CourseCard) => {
   const userStoreData = useSelector((store) => store.user.details);
 
@@ -13,15 +13,25 @@ export const EnhancedCourseCard = (CourseCard) => {
     return (
       <div className="shadow-2xl relative m-2">
         {completed && (
-          <div className="absolute z-40 ">
-            <SlBadge className="text-4xl text-yellow-400" />
+          <div className="absolute z-60 ">
+            <img
+              className="w-[50px] h-[50px]"
+              src={badge}
+              alt="badge"
+            />
+            {/*<SlBadge className="text-4xl text-yellow-400" />*/}
           </div>
         )}
         <CourseCard {...props} />
         <div className="flex justify-center flex-col">
           {!completed && (
-            <h2 className="pl-[15px] flex ">
-              <progress value={0.5} className="border border-black" />
+            <h2 className="pl-[15px] flex justify-center bg-white">
+              {/*<progress value={0.5} className="border border-black" />*/}
+              <progress
+                className="w-[150px] h-4  rounded-full"
+                value="50"
+                max="100"
+              ></progress>
             </h2>
           )}
           {!completed && (

@@ -50,7 +50,7 @@ const Register = () => {
     }
   };
   return (
-    <div className="w-[100vw] h-[92vh] bg-white flex items-center justify-center overflow-y-scroll">
+    <div className="w-[100%] h-[92vh] bg-white flex items-center justify-center overflow-y-scroll">
       <form
         className="border border-black my-[14vh] px-[10vw] rounded-xl"
         onSubmit={handleSubmit}

@@ -7,11 +7,11 @@ const Tabs = ({ datas }) => {
     setOpen(num);
   };
   return (
-    <div className="flex flex-col my-[40px] shadow-xl h-auto min-w-[440px]">
+    <div className="flex flex-col my-[40px] shadow-xl h-auto min-h-[220px]">
       <div className="flex items-center flex-col md:flex-row">
         <div className="w-[80vw] flex flex-col mt-7 md:w-[30vw]">
           <button
-            className={`border border-b-black  ${
+            className={`border border-black p-4 m-1 ${
               open === 0 ? " bg-white text-black" : "bg-black text-white"
             }`}
             onClick={() => handle(0)}
@@ -29,7 +29,7 @@ const Tabs = ({ datas }) => {
         </div>
         <div className="w-[80vw] flex flex-col mt-7 md:w-[30vw]">
           <button
-            className={`border border-b-black ${
+            className={`border border-black p-4 m-1 ${
               open === 1 ? " bg-white text-black" : "bg-black text-white"
             }`}
             onClick={() => handle(1)}
@@ -42,7 +42,7 @@ const Tabs = ({ datas }) => {
                 {syllabus &&
                   syllabus.map((w, index) => (
                     <li key={index} className="flex p-2">
-                      <p className="justify-start w-[30vw] mt-1">
+                      <p className="justify-start w-[30vw]">
                         Week {w.week}
                       </p>
                       <ul className="flex items-start w-[40vw] flex-col list-disc">
@@ -57,7 +57,7 @@ const Tabs = ({ datas }) => {
         </div>
         <div className="w-[80vw] flex flex-col mt-7 md:w-[30vw]">
           <button
-            className={`border border-b-black  ${
+            className={`border border-black p-4 ${
               open === 2 ? " bg-white text-black" : "bg-black text-white"
             }`}
             onClick={() => handle(2)}

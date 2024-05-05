@@ -30,7 +30,12 @@ const CoursePage = () => {
   }, []);
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
-    if (e.target.value === "") setFilteredCourses(courses);
+    if (e.target.value === "") {
+      setFilteredCourses(courses);
+      return;
+    }
+    else
+    handleSearch(e.target.value)
   };
   const handleClearSearch = () => {
     setSearchText("");
@@ -45,7 +50,7 @@ const CoursePage = () => {
     setFilteredCourses(list);
   };
   return (
-    <div className="flex w-[100vw] h-[92vh] m-0 p-0">
+    <div className="flex w-[100%] h-[92vh] m-0 p-0">
       <div className="">
         <p className="ml-9 sm:mx-[4vw] mt-2 text-xl font-bold">
           Check out our Courses
@@ -73,11 +78,15 @@ const CoursePage = () => {
           </button>
         </div>
         <div className="flex items-center justify-center flex-wrap overflow-y-auto">
-          {filteredcourses.map((c) => (
-            <Link to={`/courses/${c.id}`} key={c.id}>
-              <CourseCard data={c} />
-            </Link>
-          ))}
+          {filteredcourses.length>0 ? (
+            filteredcourses.map((c) => (
+              <Link to={`/courses/${c.id}`} key={c.id}>
+                <CourseCard data={c} />
+              </Link>
+            ))
+          ) : (
+            <p>No courses found...</p>
+          )}
         </div>
       </div>
     </div>
