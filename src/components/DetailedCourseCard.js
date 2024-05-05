@@ -136,8 +136,8 @@ const DetailedCourseCard = () => {
           <p className="px-3 md:px-5">
             Duration : <span className="font-semibold">{data.duration}</span>
           </p>
-          <p className="p-3 md:px-5">
-            Tuesdays & Thursdays <br /> 6:00 PM - 8:00 PM
+          <p className="pl-3 md:px-5 line-clamp-1">
+            {data.schedule}
           </p>
           <p className="px-3 md:px-5">Location : {data.location}</p>
           <div className="flex  max-w-[545px]">

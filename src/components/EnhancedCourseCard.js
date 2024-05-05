@@ -33,6 +33,12 @@ export const EnhancedCourseCard = (CourseCard) => {
               ></progress>
             </h2>
           )}
+          {
+            !completed && (
+              <p className="flex justify-center">Due Date : 29-09-2024</p>
+            )
+            //To de made dynamic
+          }
           {!completed && (
             <>
               <button
