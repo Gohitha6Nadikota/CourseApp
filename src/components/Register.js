@@ -45,7 +45,7 @@ const Register = () => {
         dispatch(setDetails(email));
         dispatch(setDetails(password));
         toast("User created successfully");
-        navigate("/login");
+        navigate("/courses");
       } catch (error) {
         console.error("Error creating user:", error);
       }
